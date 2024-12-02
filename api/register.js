@@ -1,7 +1,7 @@
 const { Pool } = require('pg');
 #Connect
 const pool = new Pool({
-  connectionString: process.ENV.DATABASE_URL,
+  connectionString: process.env.DATABASE_URL,
 });
 
 export default async function handler(req, res) {
