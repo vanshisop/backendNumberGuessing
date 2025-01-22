@@ -6,7 +6,8 @@ const pool = new Pool({
 
 export default async function handler(req, res) {
 
-   const phone = [req.body.phoneNumber]
+   const phoneNumber = req.body
+    const phone = phoneNumber
     const query = 'SELECT COUNT(*) > 0 AS exists FROM users WHERE phone = $1';
     const response = await pool.query(query, phone);
     
