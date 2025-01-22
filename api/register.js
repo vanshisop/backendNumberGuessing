@@ -5,9 +5,6 @@ const pool = new Pool({
 });
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
 
    const phone = [req.body.phoneNumber]
     const query = 'SELECT COUNT(*) > 0 AS exists FROM users WHERE phone = $1';
