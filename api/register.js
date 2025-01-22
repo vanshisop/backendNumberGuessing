@@ -6,6 +6,11 @@ const pool = new Pool({
 
 export default async function handler(req, res) {
 
+  res.setHeader('Access-Control-Allow-Origin', 'https://my-guessing-number-lbhc.vercel.app'); // Replace with your frontend domain
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS'); // Specify allowed methods
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Allow specific headers
+
+
    const { phoneNumber } = req.body; // Extract phoneNumber from the body
 const query = 'SELECT COUNT(*) > 0 AS exists FROM users WHERE phone = $1';
 const response = await pool.query(query, [phoneNumber]); // Pass phoneNumber as an array
